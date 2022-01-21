@@ -1,0 +1,38 @@
+@import '../abstracts/colors';
+@import '../abstracts/mixins';
+
+@mixin project($col) {
+  margin-top: 2.5rem;
+  background-color: $col;
+
+  @include card-padding(0.3rem);
+  p {
+    @include description-font($color-light-text);
+
+    &:first-child {
+      @include tab($color-tabs);
+    }
+  }
+}
+
+.col-project-card {
+  @include project($color-white);
+  width: calc((100% - #{$gutter-horizontal}) / 2);
+  margin-right: $gutter-horizontal;
+}
+
+.col-key-skills-card {
+  @include skills;
+
+  @include respond(tab-land) {
+    max-width: 100%; //* 1 rem = 4.8px  means (.3*16 = 4.8px)  4.8/16 = 30%
+  }
+
+  p {
+    @include description-font($color-light-text);
+
+    &:first-child {
+      @include tab($color-tabs);
+    }
+  }
+}

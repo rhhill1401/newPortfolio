@@ -1,0 +1,25 @@
+@mixin banner($col) {
+  display: flex;
+  min-width: 114rem;
+  padding: 11.97%;
+  background-color: $col;
+  background-size: cover;
+  background-position: top;
+  // background-image: url(../public/image/bannersketch.svg);
+  background-image: linear-gradient(to right bottom, #ffffff9a, #e9c2a600),
+    url(../public/image/bannersketch.svg);
+  @include respond(tab-port) {
+    padding: 18%;
+    min-width: 64rem;
+  }
+
+  @include respond(tab-land) {
+    padding: 18%;
+    min-width: 64rem;
+  }
+
+  @include respond(phone) {
+    padding: 14%;
+    min-width: 74rem;
+  }
+}

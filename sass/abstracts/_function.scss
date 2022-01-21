@@ -1,0 +1,59 @@
+@mixin image-display($pos, $size) {
+  background-position: $pos;
+  background-size: $size;
+}
+
+@mixin card-padding($radius) {
+  padding: 1rem;
+  border-radius: $radius;
+}
+
+@mixin card-dimension($width, $height) {
+  min-width: $width;
+  margin-top: $height;
+}
+
+@mixin card-render-max($mw, $mt, $col) {
+  max-width: $mw;
+  margin-top: $mt;
+  background-color: $col;
+}
+
+@mixin card-render-min($mw, $mt, $col) {
+  min-width: $mw;
+  margin-top: $mt;
+  background-color: $col;
+}
+
+@mixin container-render($w, $p) {
+  width: $w;
+  padding-top: $p;
+}
+
+@mixin small-listing-container($w, $h) {
+  width: $w;
+  min-height: $h;
+  border: 0.1rem solid $color-background;
+  box-shadow: 0 0 0.5rem rgba($color-black, 0.149);
+  border-radius: 0.4rem;
+  margin: 1rem;
+}
+
+@mixin f-small-listing-container($h) {
+  max-height: $h;
+  border: 0.1rem solid $color-background;
+  box-shadow: 0 0 0.5rem rgba($color-black, 0.149);
+  border-radius: 0.4rem;
+  margin: 1rem;
+}
+
+@mixin container-images($w, $p) {
+  width: $w;
+  padding-top: $p;
+}
+
+@mixin center($f, $w, $jc) {
+  display: $f;
+  flex-wrap: $w;
+  justify-content: $jc;
+}

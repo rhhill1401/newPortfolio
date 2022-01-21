@@ -1,0 +1,43 @@
+//@ MEDIA QUERY MANAGER
+/*@media 
+
+0 - 600px: Phone
+600 - 900px: Tablet Portrait
+900 - 1200px: Tablet Landscape
+[1200 - 1800] normal app
+1800 + :     Big Desktop
+
+
+breakpont argument choices: 
+- phone
+- tab-port
+- tab-landscape
+- big-desktop 
+
+1em = 16px to calculate take pixel/16
+*/
+.col-project-card {
+  // @include respond(desktop) {
+  //   min-width: 42%;
+  // }
+  @include respond(tab-land) {
+    min-width: 100%;
+  }
+
+  @include respond(big-desktop) {
+    min-width: 72%;
+  }
+  @include respond(huge-desktop) {
+    min-width: 82%;
+  }
+}
+
+.col-key-skills-card {
+  @include respond(tab-land) {
+    min-width: 100%; //* 1 rem = 4.8px  means (.3*16 = 4.8px)  4.8/16 = 30%
+  }
+
+  @include respond(big-desktop) {
+    max-width: 35%;
+  }
+}

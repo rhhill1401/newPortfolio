@@ -1,0 +1,33 @@
+@mixin description-font($color) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.8rem;
+  color: $color;
+}
+
+@mixin card-font($color, $case, $size) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: $size;
+  line-height: 2.8rem;
+  margin: 0.2rem 0rem 0rem 2rem;
+  text-transform: $case;
+  color: $color;
+}
+
+@mixin styled-link-text($case) {
+  text-decoration: none;
+  text-transform: $case;
+  color: $color-dark-text;
+  @include description-font($color-dark-text);
+}
+
+@mixin styled-skills-text($color, $case) {
+  text-decoration: none;
+  text-transform: $case;
+  display: inline-block;
+  margin: 2rem;
+  color: $color;
+  font-size: 1.4rem;
+}

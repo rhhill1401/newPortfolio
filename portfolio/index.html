@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css">
+  </link>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <title>Single Page App </title>
+
+</head>
+
+<body>
+
+  <banner-container>
+    <header class="banner" id="banner"></header>
+
+  </banner-container>
+
+
+  <button id="btnScrollToTop">
+    <i class="material-icons">arrow_upward</i>
+  </button>
+
+  <div>
+
+    <div class="master-container">
+
+
+      <div class="left-container">
+        <div class="left-column">
+          <section class="profile-card ">
+            <div class="container-profile">
+
+              <img id="mainPic" class="round-container pic" src="../public/image/Portrait.png">
+
+
+            </div>
+            <div class="container-text">
+              <h1 id="heading1">Rudolph Hill</h1>
+              <p>I’m a front-end developer and artist with a keen eye for creating engaging UI, and bringing products to
+                life.
+              </p>
+            </div>
+
+          </section>
+        </div>
+      </div>
+      <div class="contact-column">
+        <section class=" contact-card">
+          <div class="tab-line">
+            <p>Contact-Info</p>
+          </div>
+          <p>Email Address</p>
+          <a id="email" href="mailto:rthill49@gmail.com">rthill49@gmail.com</a>
+          <p>Phone Number </p>
+          <p id="phone-number">402-452-4487 </p>
+        </section>
+      </div>
+      <div class="middle-column">
+
+
+        <div #main-image-card>
+          <section class="image-card">
+            <img src="../public/image/gal-1.png" alt="beta" id="selectedImage">
+            <!-- <img id="display-image" src="../public/image/gal-1.png" alt="beta"> -->
+
+          </section>
+          <!--* single image -->
+          <section class="thumbnails">
+            <div class="sml-img-container" id="gallery">
+            </div>
+          </section>
+          <!-- *end single image -->
+
+        </div>
+
+        <article class="about-card">
+          <div class="tab-line">
+            <p>About Me</p>
+          </div>
+          <p>Innovative and proactive Frontend Developer offering over 15 years of demonstrated management and software
+            engineering
+          </p>
+        </article>
+
+        <div #main-image-card class="section-center">
+
+          <!--* single image -->
+
+          <!-- *end single image -->
+
+        </div>
+
+        <div class="bottom-row">
+          <div class="col-project-card">
+            <div class="tab-line">
+              <p>Projects</p>
+            </div>
+            <div>
+
+            </div>
+            <section id="cards">
+
+
+            </section>
+
+          </div>
+
+          <div class="col-key-skills-card">
+            <div class="tab-line">
+              <p>Key Skills</p>
+            </div>
+            <ul class="tech-skills">
+              <li>React</li>
+              <li>Angular</li>
+              <li>Typescript</li>
+              <li>JavaScript</li>
+              <li>Node</li>
+              <li>MongoDB</li>
+              <li>Express</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button-container id=" button-container">
+      <input type="file" id="image_input" accept="image/png, image/jpg">
+    </button-container>
+    <picture class="upload-container">
+      <div id="display_image"></div>
+    </picture>
+
+
+
+    <button-container id="button-container">
+      <input type="file" id="first-button" accept="image/png, image/jpg" style="background-color:white">
+      <a href="#" id="storage" class="btn btn-gray ">upload<a>
+    </button-container>
+
+    <picture class="image-container">
+      <div id="display_image2">
+        <img id="imgPreview" class="storageImg" src="" alt=Preview>
+      </div>
+    </picture> -->
+  </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <script type="module" src="./dist/main.js"></script>
+</body>
+
+</html>

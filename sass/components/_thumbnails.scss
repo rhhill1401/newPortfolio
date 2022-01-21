@@ -1,0 +1,46 @@
+// @mixin card-font($color, $case, $size) {
+//   font-family: 'Montserrat', sans-serif;
+//   font-weight: 800;
+//   font-size: $size;
+//   line-height: 2.8rem;
+//   margin: 0.2rem 0rem 0rem 2rem;
+//   text-transform: $case;
+//   color: $color;
+// }
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.thumbnail-cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-right: 0.5rem;
+  max-width: 25rem;
+  border: 0.1rem solid $color-background;
+  box-shadow: 0 0 0.5rem rgba($color-black, 0.149);
+  border-radius: 0.4rem;
+  padding: 0px;
+
+  .container-thumbnails-imgs {
+    display: flex;
+    justify-content: center;
+    background-color: $color-listing;
+  }
+
+  .thumbnail-images {
+    border-top-right-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+    height: 15rem;
+  }
+  p {
+    @include card-font($color-dark-text, none, 1.5em);
+  }
+  h1 {
+    @include card-font($color-dark-text, uppercase, 1.5em);
+  }
+}

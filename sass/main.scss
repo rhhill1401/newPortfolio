@@ -1,0 +1,111 @@
+@import 'abstracts/function';
+@import 'abstracts/colors';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+@import 'base/animations';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+
+@import 'components/buttons';
+@import 'components/banner';
+@import 'components/profile';
+@import 'components/thumbnails';
+
+@import 'layout/container';
+@import 'layout/cards';
+@import 'pages/home';
+@import 'base/typography';
+@import 'layout/mediaQueries'; // $color-tabs: #ee936c;
+// $color-tab-lines: #c3c3c366;
+// $color-white: #ffffff;
+// $color-dark-text: #2b2b2b;
+// $color-main: #e9c2a6;
+// $color-black: #000000;
+// $color-background: #e5e5e5;
+// $color-container: #ffffff;
+// $color-light-text: #7f858a;
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  @include description-font($color-light-text);
+}
+
+#main-image-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $color-white;
+  border-radius: 0.4;
+}
+
+.profile-bio {
+  min-height: 25rem;
+}
+.tech-skills {
+  li {
+    @include styled-skills-text($color-light-text, uppercase);
+  }
+}
+
+.tab-line {
+  @include tab-line($color-tab-lines);
+  p {
+    @include tab-text($color-dark-text);
+  }
+}
+
+#btnScrollToTop {
+  @include arrowButton($color-main, $color-main);
+}
+
+.banner {
+  @include banner($color-main);
+}
+
+/* dom */
+
+.upload-container {
+  @include container($color-container);
+}
+
+#display_image {
+  // background-color: #b6b5b5;
+  width: 37.5rem;
+  height: 23.1rem;
+  @include image-display(center, cover);
+}
+#display_image2 {
+  background-color: $color-white;
+  width: 100%;
+  @include image-display(center, cover);
+}
+
+.storageImg {
+  width: 100%;
+  @include image-display(center, cover);
+}
+.space-around {
+  max-width: 12rem;
+}
+
+input[type='file']::file-selector-button {
+  @include btn-choose-File();
+  &:hover {
+    background-color: lighten($color-dark-text, 60%) !important;
+  }
+}
+
+input[id='first-button'] {
+  @include btnTextField;
+}
+input[id='image_input'] {
+  @include btnTextField;
+}
+
+.btn {
+  @include btn-upload($color-dark-text, $color-dark-text, $color-main);
+}

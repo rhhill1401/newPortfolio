@@ -1,0 +1,153 @@
+@import 'colors';
+
+@mixin tab($color) {
+  padding-bottom: 1rem;
+  border-bottom: 0.3rem solid $color;
+  width: 14rem;
+}
+
+@mixin tab-line($color) {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1rem solid $color;
+  margin-bottom: 1.7rem;
+}
+
+@mixin tab-text($col) {
+  padding-bottom: 1rem;
+  font-weight: 500;
+  color: $col;
+  font-size: 2rem;
+}
+
+@mixin card-center {
+  justify-content: column;
+  padding: 0rem 2rem 0rem 2rem;
+}
+//# container-mixins
+
+@mixin container-banner {
+  display: flex;
+  width: 100vw;
+}
+
+@mixin round-container {
+  background-color: $color-main;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 0.4rem solid $color-light-border;
+  align-self: center;
+}
+
+@mixin container($col) {
+  display: flex;
+  width: 37.5rem;
+  padding: 1rem;
+  background-color: $col;
+  border-radius: 0.3rem;
+}
+
+@mixin container-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 37.5rem;
+}
+
+@mixin small-container-images($url) {
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  background: url($url) no-repeat center;
+  background-size: contain;
+}
+
+@mixin skills {
+  @include card-padding(0.3rem);
+  @include card-render-max(0rem, 2rem, $color-white);
+}
+//@ MEDIA QUERY MANAGER
+/*@media 
+
+0 - 600px: Phone
+600 - 900px: Tablet Portrait
+900 - 1200px: Tablet Landscape
+[1200 - 1800] normal app
+1800 + :     Big Desktop
+
+
+breakpont argument choices: 
+- phone
+- tab-port
+- tab-landscape
+- big-desktop 
+
+1em = 16px to calculate take pixel/16
+*/
+
+//# ORDER: BASE + typography > general layout + grid > page layout > components
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == s-phone {
+    @media (max-width: 27.5em) {
+      @content; //600px and down
+    }
+  }
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content; //600px and down
+    }
+  }
+
+  @if $breakpoint == mid-phone {
+    @media (max-width: 45em) {
+      @content; //720px and down
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content; //900px and down
+    }
+  }
+
+  @if $breakpoint == big-tablet {
+    @media (max-width: 64em) {
+      @content; //1024 and down
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content; //1200px and down
+    }
+  }
+
+  @if $breakpoint == min-big-tablet {
+    @media (min-width: 64.1em) {
+      @content; //1025px and up
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media (min-width: 81em) {
+      @content; //1300px and up
+    }
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 75em) {
+      @content; //1200x and up
+    }
+  }
+  @if $breakpoint == huge-desktop {
+    @media (min-width: 100em) {
+      @content; //1520px and up
+    }
+  }
+  @if $breakpoint == max-desktop {
+    @media (min-width: 125em) {
+      @content; //1520px and up
+    }
+  }
+}

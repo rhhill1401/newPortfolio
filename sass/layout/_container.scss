@@ -1,0 +1,108 @@
+.banner-container {
+  @include container-banner;
+  display: flex;
+  width: 100vw;
+}
+
+.master-container {
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  @include respond(max-desktop) {
+    margin-left: 30rem;
+  }
+}
+
+.left-container {
+  @include left-container;
+}
+
+#button-container {
+  @include container-btn;
+}
+
+//# image containers
+.img-container {
+  @include small-listing-container(23rem, 25rem);
+
+  #proj-listings {
+    // height 1200 / width 1920  = .63 === 63%
+    // @include small-container-images('../public/image/gal-1.png');
+    @include container-render(100%, 0%);
+  }
+  p {
+    @include card-font($color-dark-text, uppercase, 0.9rem);
+  }
+}
+
+//# clickable images that click to make larger
+.sml-img-container {
+  max-width: 100%;
+  display: flex;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  .proj-listings {
+    max-height: 10rem;
+    padding: 1%;
+
+    @include f-small-listing-container(10rem);
+    max-width: 100%;
+    position: relative;
+    transition: transform 250ms;
+    cursor: pointer;
+
+    border-radius: 0.4rem;
+
+    &:hover {
+      transform: translateY(-7px);
+      box-shadow: 3px 3px 10px rgba($color-black, 0.179);
+    }
+  }
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: white;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.galleryImg {
+  max-width: 100%;
+  border: 10px;
+  position: relative;
+  transition: transform 250ms;
+  cursor: pointer;
+}
+
+////////////////////////////////#Test image array
+.thumbnail-array {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: white;
+  width: 100%;
+  padding-bottom: 2rem;
+  margin-top: 2.5rem;
+}
+
+// #popup {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: rgba(0, 0, 0, 0.904);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   transform: translateY(-100%);
+//   transition: 250ms transform;
+//   padding: 50px;
+// }

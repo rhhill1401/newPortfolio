@@ -1,0 +1,23 @@
+{
+  "name": "vanillajs",
+  "version": "1.0.0",
+  "description": "Pure Portfoliio Vanilla JS",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lv": "live-server",
+    "compile:sass": "node-sass sass/main.scss styles.css -w"
+  },
+  "author": "Terry",
+  "license": "ISC",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.13",
+    "node-sass": "^7.0.1"
+  }
+}

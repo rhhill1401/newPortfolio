@@ -77,6 +77,6 @@ export const menu = [
     category: 'steaks',
     price: 39.99,
     img: './images/item-10.jpeg',
-    desc: `Awesome aged steak with all the fixens.`,
+    desc: `Awesome aged steak with all the fixens. on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut`,
   },
 ];

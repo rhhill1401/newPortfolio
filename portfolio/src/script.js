@@ -62,8 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
     .map(item => {
       return `  <div class="thumbnail-cards">
       <div class="container-thumbnails-imgs" >
-        <img class="thumbnail-images" src="${item.img}">
-      </div>
+        <img class="thumbnail-images proj-listings" src="${item.img}">
+      </div> 
       <h1 class="thumbnail-text" >${item.title}</h1>
       <p class="thumbnail-text" >${item.description}</p>
     </div> `;

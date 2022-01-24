@@ -1,33 +1,64 @@
-console.log('classes');
+// console.log('classes');
 
-class CartItems {
-  checkOut = [] as any;
+// let abilities = [] as any;
 
-  constructor(
-    public name: string // public product: string, // public quantity: number
-  ) {
-    this.name = name;
-  }
-}
+// class DC {
+//   constructor(public name: string, public ability: string[]) {
+//     this.name = name;
+//     this.ability = ability;
+//   }
 
-function addProduct(product: string, quantity: number) {
-  customer1.checkOut.push({ product, quantity });
-}
-const customer1 = new CartItems('Terry');
+//   addAbility(ability: string) {
+//     abilities.push({ name: this.name, ability: ability });
+//     return this;
+//   }
+// }
 
-addProduct('lotion', 80);
-addProduct('sunscreen', 180);
+// const characterOne = new DC('Batman', ['stealth']);
+// characterOne.addAbility('martial arts');
+// // console.log(characterOne);
+// // console.log(characterOne.ability);
 
-console.log(customer1);
-console.log(customer1.checkOut);
+// const characterTwo = new DC('Wonder Woman', ['power']);
+// characterTwo.addAbility('golden lasso').addAbility('strength');
+// // console.log(characterOne, characterTwo);
 
-let checkcustomer1 = customer1.checkOut.map((items: any) => {
-  let discount = 0.25 * items.quantity;
-  let sale = items.quantity - discount;
-  return ` Your disount is $${discount} resulting in a new price of $${sale}`;
-});
+// let combat = abilities.filter((item: any) => {
+//   return item.ability === 'strength';
+// });
 
-console.log(checkcustomer1);
+// console.log(combat);
+
+// console.log(abilities);
+
+// class CartItems {
+//   checkOut = [] as any;
+
+//   constructor(
+//     public name: string // public product: string, // public quantity: number
+//   ) {
+//     this.name = name;
+//   }
+// }
+
+// function addProduct(product: string, quantity: number) {
+//   customer1.checkOut.push({ product, quantity });
+// }
+// const customer1 = new CartItems('Terry');
+
+// addProduct('lotion', 80);
+// addProduct('sunscreen', 180);
+
+// console.log(customer1);
+// console.log(customer1.checkOut);
+
+// let checkcustomer1 = customer1.checkOut.map((items: any) => {
+//   let discount = 0.25 * items.quantity;
+//   let sale = items.quantity - discount;
+//   return ` Your disount is $${discount} resulting in a new price of $${sale}`;
+// });
+
+// console.log(checkcustomer1);
 //   constructor(public name: string, public birthYear: number) {
 //     this.name = name;
 //     this.birthYear = birthYear;

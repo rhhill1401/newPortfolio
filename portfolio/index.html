@@ -12,26 +12,57 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/462038f321.js" crossorigin="anonymous"></script>
   <title>Single Page App </title>
 
 </head>
 
 <body>
 
-  <banner-container>
-    <header class="banner" id="banner"></header>
+  <!-- * header -->
+  <header id="home">
+    <!-- * navbar -->
+    <nav id="nav">
+      <div class="nav-center">
+        <!--* nav header -->
+        <div class="nav-header">
+          <h1 class="logo">PORTFOLIO</h1>
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- *links -->
+        <div class="links-container">
+          <ul class="links">
+            <li><a href="#home" class="scroll-link">Home</a></li>
+            <li><a href="#about" class="scroll-link">About Me</a></li>
+            <li><a href="#project" class="scroll-link">Projects</a></li>
+            <li><a href="#keySkills" class="scroll-link">Key Skills</a></li>
 
-  </banner-container>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="banner">
+      <banner-container>
 
 
-  <button id="btnScrollToTop">
+      </banner-container>
+    </div>
+  </header>
+
+
+  <!-- * banner -->
+
+
+
+  <!-- <button id="btnScrollToTop">
     <i class="material-icons">arrow_upward</i>
-  </button>
+  </button> -->
 
   <div>
 
     <div class="master-container">
-
 
       <div class="left-container">
         <div class="left-column">
@@ -40,11 +71,11 @@
 
               <img id="mainPic" class="round-container pic" src="../public/image/Portrait.png">
 
-
             </div>
             <div class="container-text">
               <h1 id="heading1">Rudolph Hill</h1>
-              <p>I’m a front-end developer and artist with a keen eye for creating engaging UI, and bringing products to
+              <p>I’m a front-end developer and artist with a keen eye for creating engaging UI, and bringing
+                products to
                 life.
               </p>
             </div>
@@ -80,16 +111,21 @@
           <!-- *end single image -->
 
         </div>
-
-        <article class="about-card">
+        <!--* about  -->
+        <section id="about" class="about-card">
           <div class="tab-line">
             <p>About Me</p>
           </div>
-          <p>Innovative and proactive Frontend Developer offering over 15 years of demonstrated management and software
-            engineering
+          <p>Innovative and proactive Frontend Developer offering over 15 years of demonstrated management and
+            software engineering experience with a broad range of analytical and problem-solving skills. Capable
+            of working in a fast-paced and challenging team environment. Process-oriented with strong analytical, oral
+            and written communication skills. Strengths in React, UX Design, Angular, MongoDB, Node.js, Express,
+            JavaScript,
+            AWS, and Agile Development
           </p>
-        </article>
+        </section>
 
+        <!-- * large image conatiner -->
         <div #main-image-card class="section-center">
 
           <!--* single image -->
@@ -99,7 +135,10 @@
         </div>
 
         <div class="bottom-row">
-          <div class="col-project-card">
+
+
+          <!-- *project -->
+          <section id="project" class="col-project-card">
             <div class="tab-line">
               <p>Projects</p>
             </div>
@@ -107,13 +146,15 @@
 
             </div>
             <section id="cards">
+              <!--* single image -->
 
+              <!-- *end single image -->
 
             </section>
 
-          </div>
-
-          <div class="col-key-skills-card">
+          </section>
+          <!--* key skills -->
+          <section id="keySkills" class="col-key-skills-card">
             <div class="tab-line">
               <p>Key Skills</p>
             </div>
@@ -126,9 +167,11 @@
               <li>MongoDB</li>
               <li>Express</li>
             </ul>
-          </div>
+          </section>
         </div>
+
       </div>
+
     </div>
     <!-- <button-container id=" button-container">
       <input type="file" id="image_input" accept="image/png, image/jpg">
@@ -151,7 +194,16 @@
     </picture> -->
   </div>
 
-
+  <footer class="section">
+    <a href="#home" class="scroll-link top-link">
+      <i class="material-icons">arrow_upward</i></a>
+    <p>
+      copyright &copy; Rudolph Hill's Portfolio <span id="date">
+        2020
+      </span>
+      .all rights reserved
+    </p>
+  </footer>
 
 
   </div>

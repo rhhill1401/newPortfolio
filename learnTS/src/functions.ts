@@ -18,7 +18,7 @@
 // // Person.prototype.species = 'Homo Sapiens';
 // console.log(Ocean);
 
-// //@ old way of making classes with prototypes
+// // //@ old way of making classes with prototypes
 
 // const PersonClone = function (this: any, firstName: string, dob: number) {
 //   this.firstName = firstName;
@@ -27,7 +27,7 @@
 
 // //# to create a new method and attach to the constructor use prototype
 
-// PersonClone.prototype.calcAge = function () {
+// PersonClone.prototype.calcAge = function (): number {
 //   return 2021 - this.dob;
 // };
 
@@ -41,11 +41,10 @@
 //   this.dob = dob;
 //   this.major = major;
 // };
-
 // //# to Inherit from parent(PersonClone) you must set the constructor to the parents prototype
 // Student.prototype = Object.create(PersonClone.prototype);
 
-// Student.prototype.detail = function () {
+// Student.prototype.detail = function (): string {
 //   return `Name: ${this.firstName},  DOB: ${this.dob},  Major: ${this.major}`;
 // };
 
@@ -68,7 +67,7 @@
 //     return this;
 //   }
 
-//   //# allows to set a new value to an argument in this case speed has been altered
+// //   //# allows to set a new value to an argument in this case speed has been altered
 //   get speedUS() {
 //     return this.speed / 1.6;
 //   }
@@ -187,39 +186,39 @@
 
 // //@  example of a call back function  in the example below the finction high 5 is the call back function
 
-// const high5 = function () {
-//   console.log('what👏🏾');
-// };
+const high5 = function (): void {
+  console.log('what👏🏾');
+};
 
-// document.body.addEventListener('click', high5);
+document.body.addEventListener('click', high5);
 
-// ['Jonas', 'Martha', 'Adam'].forEach(high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
 
-// //@ examples of call back functions
+//@ examples of call back functions
 
-// const addNumbers = function (num1: number, num2: number) {
-//   let result = num1 + num2;
-//   return result;
-// };
+const addNumbers = function (num1: number, num2: number): number {
+  let result = num1 + num2;
+  return result;
+};
 
-// const subtractNumbers = function (num1: number, num2: number) {
-//   let result = num1 - num2;
-//   return result;
-// };
+const subtractNumbers = function (num1: number, num2: number): number {
+  let result = num1 - num2;
+  return result;
+};
 
-// const numberCalculator = function (num1: number, num2: number, fn: Function) {
-//   //@ the call back fn is going to take what is in argument and do something to it whatever function is applied to num1 and num2 will return a result
+const numberCalculator = function (num1: number, num2: number, fn: Function) {
+  //   //@ the call back fn is going to take what is in argument and do something to it whatever function is applied to num1 and num2 will return a result
 
-//   console.log(
-//     `This is the text part and this is the function ${fn(num1, num2)}`
-//   );
-// };
+  console.log(
+    `This is the text part and this is the function ${fn(num1, num2)}`
+  );
+};
 
-// numberCalculator(2, 3, addNumbers);
-// numberCalculator(2, 3, subtractNumbers);
+numberCalculator(2, 3, addNumbers);
+numberCalculator(2, 3, subtractNumbers);
 
-// const newAddNumbers = () => {
-//   let result = 5 + 2;
-//   console.log(result);
-// };
-// document.body.addEventListener('click', newAddNumbers);
+const newAddNumbers = () => {
+  let result = 5 + 2;
+  console.log(result);
+};
+document.body.addEventListener('click', newAddNumbers);

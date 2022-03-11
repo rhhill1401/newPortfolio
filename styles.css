@@ -111,7 +111,6 @@ body {
   @media (min-width: 75em) {
     .contact-column {
       order: 1;
-      margin-top: -450px;
       min-width: 22rem;
       padding: 0; } }
   @media (max-width: 75em) {
@@ -225,9 +224,16 @@ body {
           display: none; }
       .contact-card a {
         padding-left: 20px; } }
-  @media (min-width: 75em) {
+  @media (min-width: 81em) {
     .contact-card {
-      min-height: 72rem;
+      min-height: 52rem;
+      margin-top: -890px;
+      padding: 1rem;
+      border-radius: 0.3rem; } }
+  @media (min-width: 100em) {
+    .contact-card {
+      min-height: 52rem;
+      margin-top: -980px;
       padding: 1rem;
       border-radius: 0.3rem; } }
 
@@ -527,10 +533,14 @@ nav {
 .title span {
   color: #e2c3a9; }
 
-#about,
-#projects,
+#about {
+  max-height: 30vh; }
+
+#projects {
+  height: 40vh; }
+
 #keySkills {
-  height: 60vh; }
+  height: 80vh; }
 
 #services {
   background: #ffffff; }

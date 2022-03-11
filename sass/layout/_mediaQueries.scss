@@ -33,6 +33,7 @@ breakpont argument choices:
 }
 
 .col-key-skills-card {
+  //1200px and down
   @include respond(tab-land) {
     min-width: 100%; //* 1 rem = 4.8px  means (.3*16 = 4.8px)  4.8/16 = 30%
   }

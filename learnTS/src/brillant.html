@@ -1,0 +1,184 @@
+@using LovelySkin.Web.Domain.Helpers
+@using LovelySkin.Web.StoreFront.Models.Shared.Html
+@using LovelySkin.Web.StoreFront.ViewModels.Shared.Badges
+@model LovelySkin.Web.StoreFront.ViewModels.Offerings.OfferingShopViewModel
+
+
+@*--Staff Favorite--*@
+@*if (Model.StaffFavorite)
+{
+<section class="ls-wrapper col-10-10 last ls-product-staff-favorite-wrapper">
+  <div class="ls-product-staff-favorite-flag">
+    <span class="ls-staff-favorite-flag-text">Staff Favorite</span>
+  </div>
+</section>
+}*@
+@*-------------------Primary Product Information---------------------*@
+<section class="ls-wrapper col-10-10 last margin-top" data-source-offering-id="@Model.Id">
+  <section class="ls-wrapper col-12-6">
+    <div class="margin-bottom">
+      @* Brilliant Distinctions *@
+      @if (!Model.HasTransitionProfile && Model.AffiliateRewardsEligible)
+      {
+      <!-- TODO -->
+      <section class="ls-af-badge-callout" layout="row">
+        <div>
+          @Html.BrilliantDistinctionsMonogram("Brilliant Distinctions Rewards", new { @class = "ls-af-logo" })
+        </div>
+        <div class="margin-left">
+          <p>
+            <span class="normal">Earn @(ProjectSettings.EnableBrilliantDistinctionsRedemption ? "& Redeem" :
+              string.Empty) Brilliant Distinctions</span><br>
+            <a href="@Url.Action(" BrilliantDistinctionsModal", "Rewards" , new {area="Account" ,
+              returnUrl=Url.Action("Index", "Offerings" , new {area=string.Empty, seoName=Model.SeoName,
+              triggerModal=Url.Action("BrilliantDistinctionsModal", "Rewards" , new {area="Account" }),
+              modalParams="modal-class=bd-modal" })})" class="medium-small modalTrigger" rel="modal-class=bd-modal"
+              data-event-action="Clicked" data-event-category="Brilliant Distinctions"
+              data-event-label="BD Info Landing - Connect to BD Link- Desktop">Learn More</a>
+          </p>
+        </div>
+      </section>
+      }
+    </div>
+    //* (ls-af-badge-callout and ls-af-logo and ls-af-logo--sm
+
+    @Html.DisplayFor(m => m.PrimaryPhoto)
+    @Html.DisplayFor(m => m.ImageCarousel)
+  </section>
+
+  @*--Primary Product Details--*@
+  <section class="ls-wrapper col-12-6 last" data-offering="@Model.Id">
+    @*--Product Title--*@
+    <h1 class="ls-product-page-title padding-bottom-small" data-title-highlight>
+      <div id="itemName">@Model.Name</div>
+    </h1>
+
+    @if (!string.IsNullOrWhiteSpace(Model.PreviousName))
+    {
+    <span class="ls-product-former-name">(formerly known as @Model.PreviousName)</span>
+    }
+
+    @*--Size--*@
+    <div class="ls-product-size margin-top-small">
+      @if (!string.IsNullOrWhiteSpace(Model.Size))
+      {
+      @Model.Size
+      }
+      else
+      {
+      @:&nbsp;
+      }
+    </div>
+
+    @if (Model.DiscontinuedDisplay != null)
+    {
+    @Html.DisplayFor(m => m.DiscontinuedDisplay)
+    }
+    else
+    {
+    if (Model.PercentOffNotification.HasValue)
+    {
+    <div class="lsx-sale-highlight-notification notification-open" style="display: none;" data-highlight-content>
+      <p>
+        Don't miss out! You've saved <span>@Model.PercentOffNotification</span>% off.
+      </p>
+      @Html.Button("Close & lock in discount", new { @class = "lsx-sale-close", aria_label = "Close Notification" },
+      type: ButtonType.Button, style: ButtonStyle.Text)
+    </div>
+    }
+    @Html.DisplayFor(m => m.Rating)
+    <div class="ls-product-price-stock-wrapper margin-top-big">
+      <div class="ls-wrapper col-10-10">
+        <div offering-price-wrapper>
+          @Html.DisplayFor(m => m.InitialPrice)
+        </div>
+        <!--Google Display Price - 10/22/18 -->
+        @if (Model.HasHiddenExclusivePricing)
+        {
+        @Html.Partial("~/Views/Offerings/OfferingShopPartials/_HideExclusivePricing.cshtml", Model.SeoName)
+        }
+      </div>
+    </div>
+    @Html.DisplayFor(m => m.SellingPoints)
+    @Html.DisplayFor(m => m.Options)
+    <!--OrderGroove Subscription - PDP-->
+    <div class="og-offer" data-og-module="pdp" data-og-product="*"></div>
+    @Html.DisplayFor(m => m.AddToCart)
+    @Html.DisplayFor(m => m.Interactions)
+
+    <div class="ls-wrapper col-10-10 margin-top-big padding-top-big" layout="row" layout-align="top space-between">
+      <div class="ls-wrapper col-10-5 last">
+        <div class="ls-authorized-reseller-cont" layout="row" layout-align="center start">
+          <img
+            src="https://64019b4d0652c07b09b7-6312be0d94e69284bcc1f2f5e87d3b91.ssl.cf1.rackcdn.com/rklyg5gv_202109132042510997.svg"
+            alt="" aria-hidden="true" height="56" width="56" />
+          <div class="margin-left ls-authorized-message">
+            <div class="bold-text margin-bottom-small">@ProjectSettings.StoreFront.ShippingMessage</div>
+            @{
+            var shippingPolicyLink = Url.Action("ShippingPolicyModal", "Layout", new { area = "" });
+            <a href="@shippingPolicyLink" class="modalTrigger"
+              rel="modal-class=modal-shipping-returns&data-type=dynamic&replace=false">Learn More</a>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="ls-wrapper col-10-5 last">
+        @Html.DisplayFor(m => m.AuthorizedBadge)
+      </div>
+    </div>
+
+    }
+  </section>
+  @if (Model.OfferingData != null)
+  {
+  @Html.DisplayFor(m => m.OfferingData)
+
+  if (Model.OfferingData.Items.Count > 1)
+  {
+  var stockMessage = Model.DefaultStock;
+  <script type="text/html" id="stock-html-default-value">
+                @Html.DisplayFor(m => m.DefaultStock)
+            </script>
+  <script type="text/html" id="price-html-default-value">
+                @Html.DisplayFor(m => m.DefaultPrice)
+            </script>
+  <script type="text/html" id="shipping-availability-html-default-value">
+                @Html.Partial("_OfferingSelectItemShipping", Model.DefaultStock)
+            </script>
+  }
+
+  foreach (var item in Model.OfferingData.Items)
+  {
+  var stockMessage = item.Value.Stock;
+  <script type="text/html" id="stock-html-@item.Key">
+                @Html.DisplayFor(m => item.Value.Stock)
+            </script>
+  <script type="text/html" id="price-html-@item.Key">
+                @Html.DisplayFor(m => item.Value.Price)
+            </script>
+  <script type="text/html" id="shipping-availability-html-@item.Key">
+                @Html.Partial("_OfferingSelectItemShipping", item.Value.Stock)
+            </script>
+  }
+  }
+</section>
+
+@*Templates & Hidden Properties*@
+@if (Model.ShadeGroups != null && Model.ShadeGroups.Any())
+{
+<script type="text/template" id="shade-finder-template">
+        @Html.Partial("_OfferingShadeGroupModel", Model.ShadeGroups)
+    </script>
+}
+
+
+@*This data potentially could be removed after js is cleaned up......*@
+@if (Model.OfferingItemPropertiesModel != null)
+{
+<input type="hidden" class="jsonItemProperties" value="@Model.OfferingItemPropertiesModel.ItemPropertiesJson" />
+}
+@if (Model.OfferingOptionPropertiesModel != null)
+{
+@Html.Hidden("OptionValues", Model.OfferingOptionPropertiesModel.OptionPropertiesJson)
+}
+@Html.Hidden("Media", Model.PhotosAndVideosJsonString)

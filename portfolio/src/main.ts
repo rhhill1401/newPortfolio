@@ -1,4 +1,5 @@
 import { portThumbnails } from './cards.js';
+import { Skills } from './skills.js';
 
 const images = [];
 let uploaded_image = '';
@@ -38,7 +39,6 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-window.addEventListener('DOMContentLoaded', () => {});
 function displayAll(pics: any) {
   let newImages = pics
     .map((item: any) => {
@@ -55,6 +55,17 @@ function displayAll(pics: any) {
     .join('');
   sImages.innerHTML = newImages;
 }
+
+const keySkill = document.querySelector('.tech-skills')!;
+
+let newImages = Skills.map((item: any) => {
+  return `   
+  <li>${item.skill}</li>
+ 
+   
+ `;
+}).join('');
+keySkill.innerHTML = newImages;
 
 // *****************************Set date*************************************
 
@@ -111,14 +122,28 @@ scrollLinks.forEach(link => {
   link.addEventListener('click', (e: any) => {
     e.preventDefault();
     //* navigate to specificspot
+
     const id = e.currentTarget.getAttribute('href').slice(1);
     const element = document.getElementById(id);
-    // console.log(id);
 
-    let position = element?.offsetTop;
+    //* calculate the heights
+    const navHeight = navBar.getBoundingClientRect().height;
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+
+    const fixedNav = navBar.classList.contains('fixed-nav');
+    let position = element!.offsetTop - navHeight;
+
+    if (!fixedNav) {
+      position = position - navHeight;
+    }
+    if (navHeight > 82) {
+      position = position + containerHeight;
+    }
+
     window.scrollTo({
       left: 0,
       top: position,
     });
+    linksContainer.style.height = 0;
   });
 });

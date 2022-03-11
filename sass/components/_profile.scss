@@ -92,7 +92,7 @@
     //min 1025 and up
     // min-height: 130rem;
     order: 1;
-    margin-top: -450px;
+    // margin-top: -550px;
     min-width: 22rem;
     padding: 0;
   }
@@ -216,9 +216,17 @@
       padding-left: 20px;
     }
   }
-  @include respond(big-desktop) {
+  @include respond(desktop) {
     //1200 up
-    min-height: 72rem;
+    min-height: 52rem;
+    margin-top: -890px;
+    @include card-padding(0.3rem);
+  }
+
+  @include respond(huge-desktop) {
+    //1520 up
+    min-height: 52rem;
+    margin-top: -980px;
     @include card-padding(0.3rem);
   }
 }

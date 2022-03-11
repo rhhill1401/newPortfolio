@@ -1,20 +1,20 @@
 //#Map Method creates new array based on current array
 
-// const prices = [20, 10, 30, 25, 15, 40, 80, 5];
+// const prices: Array<number> = [20, 10, 30, 25, 15, 40, 80, 5];
 
 // const salesPrices = prices.map(sale => {
 //   return sale / 2;
 // });
 // console.log(salesPrices);
 
-// const users = [
+// const users: Array<string | number | object> = [
 //   { name: 'gold star', price: 30 },
 //   { name: 'mushroom', price: 70 },
 //   { name: 'green shell', price: 10 },
 //   { name: 'red star', price: 30 },
 // ];
 
-// const salePrice = users.map(sale => {
+// const salePrice = users.map((sale: { name: string; price: number }): object => {
 //   if (sale.price === 30) {
 //     return { name: sale.name, price: sale.price / 2 };
 //   } else return sale;
@@ -22,8 +22,8 @@
 
 // console.log(salePrice);
 
-// //# Map to change status of string on an object
-// const MarvelCharacters = [
+// // //# Map to change status of string on an object
+// // const MarvelCharacters = [
 //   { name: 'Thor', status: 'undefeated' },
 //   { name: 'Hulk', status: 'undefeated' },
 //   { name: 'SpiderMan', status: 'undefeated' },
@@ -121,16 +121,16 @@
 // console.log(players);
 
 //# Chaining an array method
-const users = [
-  { name: 'mario', price: 30 },
-  { name: 'yoshi', price: 70 },
-  { name: 'mario', price: 10 },
-  { name: 'crystal', price: 30 },
-];
+// const users = [
+//   { name: 'mario', price: 30 },
+//   { name: 'yoshi', price: 70 },
+//   { name: 'mario', price: 10 },
+//   { name: 'crystal', price: 30 },
+// ];
 
-const promos = users
-  .filter(sale => sale.price === 30)
-  .map(halfOff => {
-    return `Item ${halfOff.name} is ${halfOff.price / 2} dollars `;
-  });
-console.log(promos);
+// const promos = users
+//   .filter(sale => sale.price === 30)
+//   .map(halfOff => {
+//     return `Item ${halfOff.name} is ${halfOff.price / 2} dollars `;
+//   });
+// console.log(promos);
